@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 
 from views.views import home_page, userSign,user_profile,search,results,book_page,add,show_cart,checkout,track,track_order
-from views.views import signOwner,owner_auth,removeBook,expenditure,authorR, genreR
+from views.views import signOwner,owner_auth,removeBook,expenditure,authorR, genreR,addBook,addB
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home',home_page,name= 'home'),
@@ -37,4 +37,6 @@ urlpatterns = [
     path('datereport',expenditure,name="dateExpenditure"),
     path('authorreport',authorR,name="authorReport"),
     path('genrereport',genreR,name="genreReport"),
+    path('addbook',addBook,name="addBook"),
+    path('add',addB,name="addingBook"),
 ]

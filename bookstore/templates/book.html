@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<title>Book</title>
+<style>
+    body{
+    background-color: rgb(177, 194, 189);
+}
+
+a {
+    color: rgb(54, 54, 30);
+}
+/* unvisited link */
+a:link {
+
+    text-decoration: underline;
+    
+
+  }
+  
+  /* visited link */
+  a:visited {
+
+    text-decoration: underline;
+  }
+  
+  /* mouse over link */
+  a:hover {
+
+    text-decoration: underline;
+  }
+  
+  /* selected link */
+  a:active {
+
+    text-decoration: underline;
+  }
+
+  h1{
+      color: rgb(80, 46, 4);
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+  p{
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+  h3{
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      color: rgb(48, 6, 68);
+  }
+</style>
+<body>
+    <div><h3><a href="/search">Search</a><br><a href="/cart">Cart</a></h3><a href="/track">Track Order</a><br><a href="/home"> SignIn</a></div>
+   <h1>{{Book.Title}}</h1>  
+   <p>Genre: {{Book.Genre}}</p>
+   <p>Author: {{Book.Author}}</p>
+   <p>Number of Pages: {{Book.Pages_number}}</p>
+   <p>Published by: {{Publisher.Name}}</p>
+   <p>{{Book.Stock}} in stock</p>
+   {% if Owner.Owner == 0 %}
+    <a href="/addToCart?ISBN={{Book.ISBN}}">Add to Cart</a>
+
+
+    <h3>{{Cart.quantity}} in cart</h3>
+
+        {% endif %}
+        {% if Owner.Owner == 1 %}
+        <a href="/remove?ISBN={{Book.ISBN}}">Remove from store</a>
+        {% endif %}
+    </div>
+
+    <br><br><br>
+    <h3>Similar Books</h3>
+    <div>
+        {% for key,value in Similar.items %}
+        <p><a href="book?ISBN={{value.ISBN}}">{{value.Title}}</a> </p>
+        {% endfor %}
+    </div>
+</body>
+
+
+</html>

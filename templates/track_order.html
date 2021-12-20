@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<title>Success</title>
+<style>
+    body{
+    background-color: rgb(177, 194, 189);
+}
+
+a {
+    color: rgb(54, 54, 30);
+    font-family: 'Times New Roman', Times, serif;
+}
+/* unvisited link */
+a:link {
+
+    text-decoration: underline;
+    
+
+  }
+  
+  /* visited link */
+  a:visited {
+
+    text-decoration: underline;
+  }
+  
+  /* mouse over link */
+  a:hover {
+
+    text-decoration: underline;
+  }
+  
+  /* selected link */
+  a:active {
+
+    text-decoration: underline;
+  }
+
+  label{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: rgb(59, 1, 1);
+  }
+
+  input{
+      background-color: rgb(247, 197, 197);
+      color: rgb(58, 4, 4);
+
+  }
+  h2{
+      font-family: cursive;
+  }
+
+  h4{
+      font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      color: rgb(56, 3, 3);
+
+  }
+  h3{
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      color: rgb(85, 51, 7);
+  }
+  p{
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: smaller;
+        color: rgb(110, 17, 17);
+  }
+</style>
+<body>
+<div><h3><a href="/search">Search</a> <a href="/cart">Cart</a></h3><a href="/track">Track Order</a><br><a href="/home">SignIn</a></div>    
+    
+<br><br>
+    <form action = "/track_order" method = "POST">
+        {% csrf_token %}
+        <label for="Order">Order Number: </label>
+        <input id="Order" type="text" name="Order">
+        <br><br>
+        <input type="submit" value="Track">
+    </form> 
+    <br><br><br><br><br><br>
+
+    <h2>{{note}}</h2>
+    {% if Status == 1 %}
+    <h4>Order Placed on: {{Date}}</h4>
+    <h4>Delivery Address: {{Address}}, {{Postal}} ,{{Province}}</h4>
+    <h3>Items:</h3>
+        {% for key,value in order.items %}
+         {% for key2,value2 in value.items %}    
+         <h4>{{key2}}</h4>
+         <p>Quantity: {{value2}}</p>
+         {% endfor %}
+        {% endfor %}
+    {% endif %}
+    
+</body>
+
+
+</html>

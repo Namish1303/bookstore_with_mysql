@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<title>Search Page</title>
+<style>
+    body{
+    background-color: rgb(177, 194, 189);
+}
+
+a {
+    color: rgb(54, 54, 30);
+}
+/* unvisited link */
+a:link {
+
+    text-decoration: underline;
+    
+
+  }
+  
+  /* visited link */
+  a:visited {
+
+    text-decoration: underline;
+  }
+  
+  /* mouse over link */
+  a:hover {
+
+    text-decoration: underline;
+  }
+  
+  /* selected link */
+  a:active {
+
+    text-decoration: underline;
+  }
+
+  label{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: rgb(59, 1, 1);
+  }
+
+  input{
+      background-color: rgb(247, 197, 197);
+      color: rgb(58, 4, 4);
+
+  }
+  select{
+    background-color: rgb(247, 197, 197);
+    color: rgb(58, 4, 4);
+  }
+</style>
+<body>
+    <form action = "/result" method = "POST">
+        {% csrf_token %}
+        <label for="ISBN">ISBN: </label>
+        <input id="ISBN" type="text" name="ISBN">
+        <br><br>
+        <label for="Author">Author:</label>
+        <input id="Author" type="text" name="Author">
+        <br><br>
+        <label for="Title">Title:</label>
+        <input id="Title" type="text" name="Title">
+        <br><br>
+        <label for="genre">Genre:</label>
+        <select name="genre" id="genre">
+            <option value = "Any">Any</option>
+            <option value="Mythology">Mythology</option>
+            <option value="Romance">Romance</option>
+            <option value="Fiction">Fiction</option>
+            <option value="Sci-FI">Sci-Fi</option>
+            <option value="Action">Action</option>
+            <option value="Adventure">Adventure</option>
+
+        </select>
+        <br><br>
+        <input type="submit" value="search">
+    </form>
+
+
+</body>
+
+
+</html>

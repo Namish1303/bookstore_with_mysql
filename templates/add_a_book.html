@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<title>Add Book</title>
+<style>
+    body{
+    background-color: rgb(177, 194, 189);
+}
+
+a {
+    color: rgb(54, 54, 30);
+}
+/* unvisited link */
+a:link {
+
+    text-decoration: underline;
+    
+
+  }
+  
+  /* visited link */
+  a:visited {
+
+    text-decoration: underline;
+  }
+  
+  /* mouse over link */
+  a:hover {
+
+    text-decoration: underline;
+  }
+  
+  /* selected link */
+  a:active {
+
+    text-decoration: underline;
+  }
+
+  label{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: rgb(59, 1, 1);
+  }
+
+  input{
+      background-color: rgb(247, 197, 197);
+      color: rgb(58, 4, 4);
+
+  }
+  select{
+    background-color: rgb(247, 197, 197);
+    color: rgb(58, 4, 4);
+  }
+  </style>
+<body>
+    <form action = "/add" method = "POST">
+        {% csrf_token %}
+        <label for="ISBN">ISBN: </label>
+        <input id="ISBN" type="text" name="ISBN" required>
+        <br><br>
+        <label for="Author">Author:</label>
+        <input id="Author" type="text" name="Author" required>
+        <br><br>
+        <label for="Title">Title:</label>
+        <input id="Title" type="text" name="Title" required>
+        <br><br>
+        <label for="genre">Genre:</label>
+        <select name="genre" id="genre">
+            <option value = "Any">Any</option>
+            <option value="Mythology">Mythology</option>
+            <option value="Romance">Romance</option>
+            <option value="Fiction">Fiction</option>
+            <option value="Sci-FI">Sci-Fi</option>
+            <option value="Action">Action</option>
+            <option value="Adventure">Adventure</option>
+
+        </select>
+        <br><br>
+        <label for="Pages">Number of Pages:</label>
+        <input id="Pages" type="text" name="Pages">
+        <br><br>
+        <label for="Price">Price:</label>
+        <input id="Price" type="text" name="Price">
+        <br><br>
+        <input type="submit" value="Add">
+    </form>
+
+    <h2>{{error}}</h2>
+
+
+</body>
+
+
+</html>

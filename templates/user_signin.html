@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<title>User Sign In</title>
+<style>
+    body{
+    background-color: rgb(177, 194, 189);
+}
+
+a {
+    color: rgb(54, 54, 30);
+    font-family: 'Times New Roman', Times, serif;
+}
+/* unvisited link */
+a:link {
+
+    text-decoration: underline;
+    
+
+  }
+  
+  /* visited link */
+  a:visited {
+
+    text-decoration: underline;
+  }
+  
+  /* mouse over link */
+  a:hover {
+
+    text-decoration: underline;
+  }
+  
+  /* selected link */
+  a:active {
+
+    text-decoration: underline;
+  }
+
+  label{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: rgb(59, 1, 1);
+  }
+
+  input{
+      background-color: rgb(247, 197, 197);
+      color: rgb(58, 4, 4);
+
+  }
+  p{
+    color: rgb(58, 4, 4);
+    font-size: large;
+    font-family: 'Times New Roman', Times, serif;
+  }
+
+</style>
+<body>
+    <form action = "/user" method = "POST">
+        {% csrf_token %}
+        <label for="username">Username: </label>
+        <input id="username" type="text" name="username">
+        <br><br>
+        <label for="password">Password:</label>
+        <input id="password" type="password" name="password">
+        <br><br>
+        <input type="submit" value="Sign In">
+    </form>
+    <p> {{status}}</P>
+    <p> {{signed}}</p>
+
+
+</body>
+
+
+</html>

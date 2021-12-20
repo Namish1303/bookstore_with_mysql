@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<title>Report</title>
+<body>
+    <div><h3><a href="/search">Search</a><br><a href="/cart">Cart</a></h3><a href="/track">Track Order</a><br><a href="/home"> SignIn</a></div>
+    <h2>Reports</h2>
+
+    <form action = "/datereport" method = "POST">
+        {% csrf_token %}
+    <label for="date">Date (format yyyy-mm-dd): </label>
+    <input id="date" type="text" name="date">
+    <br><br>
+    <input type="submit" value="Generate">
+        </form>
+        <br><br><br><br>
+       <p><a href="/authorreport">Sale per Author</a><p>
+       <br><br>
+       <p><a href ="genrereport">Sale per Genre</a><p>
+    <h4>--------X--------------------X-----------------X--------------X</h4>
+    {% if status == 1 %}
+        <h4>On {{report.Date}}</h4>
+       <h5>Sale: {{report.Sale}}</h5>
+       <h5>Expenditure: {{report.Expenditure}}</h5>
+    {% endif %}
+
+    {% if status == 2 %}
+        <h5>Sale&emsp;&emsp;&emsp;Author</h5>
+        {% for key,value in report.items %}
+            <h5>{{value.Sale}}&emsp;&emsp;&emsp;{{value.Author}}</h5>
+        {% endfor %}
+            {% endif %}
+
+    {% if status == 3 %}
+    <h5>Sale&emsp;&emsp;&emsp;Genre</h5>
+        {% for key,value in report.items %}
+            <h5>{{value.Sale}}&emsp;&emsp;&emsp;{{value.Genre}}</h5>
+        {% endfor %}
+    {% endif %}
+
+    {{error}}
+</body>
+
+
+</html>

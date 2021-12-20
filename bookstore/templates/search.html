@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<title>Search Page</title>
+<body>
+    <form action = "/result" method = "POST">
+        {% csrf_token %}
+        <label for="ISBN">ISBN: </label>
+        <input id="ISBN" type="text" name="ISBN">
+        <label for="Author">Author:</label>
+        <input id="Author" type="text" name="Author">
+        <label for="Title">Title:</label>
+        <input id="Title" type="text" name="Title">
+        <label for="genre">Genre:</label>
+        <select name="genre" id="genre">
+            <option value = "Any">Any</option>
+            <option value="Mythology">Mythology</option>
+            <option value="Romance">Romance</option>
+            <option value="Fiction">Fiction</option>
+            <option value="Sci-FI">Sci-Fi</option>
+            <option value="Action">Action</option>
+            <option value="Adventure">Adventure</option>
+
+        </select>
+
+        <input type="submit" value="search">
+    </form>
+
+
+</body>
+
+
+</html>

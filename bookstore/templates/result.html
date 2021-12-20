@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<title>Result</title>
+<body>
+    <div><h3><a href="/search">Search</a><br><a href="/cart">Cart</a></h3><a href="/track">Track Order</a><br><a href="/home"> SignIn</a></div>
+    <h2>Results</h2>
+    {% for key,value in Books.items %}
+    <p>
+    <a href="/book?ISBN={{value.ISBN}}"> {{ value.Title }}</a>
+    </p>
+    {% endfor %}
+</body>
+
+
+</html>

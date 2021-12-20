@@ -9,3 +9,6 @@ By now Django should be able to connect to the DBMS
 
 using 'python manage.py runser', start the server and go to the url address.
 From there you can move to next pages using the options on each page.
+
+
+NOTE: For all the webpages, there is no CSS,
